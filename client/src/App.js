@@ -7,6 +7,7 @@ import Register from './pages/Register'
 import NavBar from './components/NavBar';
 
 export default function App(){
+    
     return (
         <div class="root">
             <NavBar> </NavBar>
