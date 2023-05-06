@@ -1,0 +1,88 @@
+/* Navbar.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f2f2f2;
+  }
+  
+  .navbar__left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar__logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .navbar__app-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .navbar__right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar__user-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .navbar__user-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .navbar__dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 160px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    display: none;
+  }
+  
+  .navbar__dropdown-content a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  .navbar__dropdown-content a:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .navbar__user-dropdown:hover .navbar__dropdown-content {
+    display: block;
+  }
+  
+  .navbar__sign-in {
+    padding: 8px 16px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .navbar__sign-in:hover {
+    background-color: #0056b3;
+  }
+  

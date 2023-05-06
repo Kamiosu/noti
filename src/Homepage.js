@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Header from './components/Navbar';
 
 export default function Homepage() {
   return (
-    <div className="App">
-      
+    <div className="h-screen bg-gradient-to-br from-cyan-500 to-black">
+      <Header />
     </div>
   );
 }
