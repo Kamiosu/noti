@@ -4,10 +4,12 @@ import { Routes, Route, BrowserRouter as Router} from 'react-router-dom'
 import Homepage from './pages/Homepage'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import NavBar from './components/NavBar';
 
-const App = () => {
+export default function App(){
     return (
-        <div>
+        <div class="root">
+            <NavBar> </NavBar>
             <Router>
                 <Routes>
                     <Route path="/homepage" exact element={<Homepage/>}/>
@@ -19,4 +21,3 @@ const App = () => {
     )
 }
 
-export default App;

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/90be731c-d73c-416f-acd0-1d92abd1454d/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/meetnoti",
+    "appService.deploySubpath": "."
+}
