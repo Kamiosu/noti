@@ -1,20 +1,29 @@
 import React from 'react'
 import { Routes, Route, BrowserRouter as Router} from 'react-router-dom'
 
-import Homepage from './pages/Homepage'
+import Profile from './pages/Profile'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import NavBar from './components/NavBar';
+import Courses from './pages/Courses';
+import MakeNotes from './pages/MakeNotes'
+import Connect from './pages/Connect'
+import {useEffect} from 'react'
 
 export default function App(){
+    
     return (
         <div class="root">
             <NavBar> </NavBar>
+            
             <Router>
                 <Routes>
-                    <Route path="/homepage" exact element={<Homepage/>}/>
+                    <Route path="/Profile" exact element={<Profile/>}/>
                     <Route path="/login" exact element={<Login/>}/>
                     <Route path="/register" exact element={<Register/>}/>
+                    <Route path="/Connect" exact element={<Connect/>}/>
+                    <Route path="/Courses" exact element={<Courses/>}/>
+                    <Route path="/MakeNotes" exact element={<MakeNotes/>}/>
                 </Routes>
             </Router>
         </div>

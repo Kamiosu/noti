@@ -1,9 +1,13 @@
-function Register() {
+import React from 'react'
+export default function Register() {
   return (
     <div className="App">
-      <h1>Register</h1>
+      <h1>REGISTER</h1>
+      <a href='/Login'>Login</a>
     </div>
   );
 }
 
-export default Register;
+
+
+
