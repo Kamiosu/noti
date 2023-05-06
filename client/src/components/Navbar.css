@@ -1,11 +1,14 @@
 /* Navbar.css */
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+* {
+  font-family: Poppins;
+}
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #f2f2f2;
+    background-color: rgba(247, 255, 89, 0.49);
   }
   
   .navbar__left {
@@ -21,7 +24,7 @@
   
   .navbar__app-name {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 800;
   }
   
   .navbar__right {
@@ -73,16 +76,17 @@
   
   .navbar__sign-in {
     padding: 8px 16px;
-    background-color: #007bff;
-    border: none;
-    color: #fff;
+    background-color: #12120900;
+    border: 2px #F0CF65 solid;
+    color: #000;
     font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
     margin-right: 20px;
+    transition: background 0.4s ease;
   }
   
   .navbar__sign-in:hover {
-    background-color: #0056b3;
+    background-color: #F0CF65;
   }
   
