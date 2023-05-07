@@ -21,15 +21,12 @@ Since our website in hosted through a domain, till the time you have a working m
 
 ## Installation
 - For local host:
-- Install VS Code
-- Open the Noti program in VS Code
-- Install Node.js from their official website
-- Open the terminal in VS Code
-- For Windows, verify that Node.js is installed by typing in "node -v" into the terminal 
-- For Mac OS, verify that Node.js is installed by typing "node -v node -v // The command we ran - tests the version of Node.js that's currently installed v12.13.0 // The version of Node.js that's installed. It can be some other version." into the terminal
+
+- For Windows, verify that Node.js is installed by typing in ` node -v ` into the terminal 
+- For Mac OS, verify that Node.js is installed by typing ` node -v ` // The command we ran tests the version of Node.js that's currently. The version of Node.js that's installed. 
 - Update the version of npm by typing ` $ sudo npm install npm --global // Update thenpmCLI client `
 - type ` echo 'export PATH=/usr/local/bin:$PATH' >>~/.bash_profile`  to add the details in .bash_profile file permanently.
-- Install git by typing "git install" into the terminal
+- Install git by typing `git install` into the terminal
 
 ## Usage
 - For local host:
