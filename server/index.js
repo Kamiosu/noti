@@ -147,7 +147,6 @@ app.post('/api/login', async (req, res) => {
         password: req.body.password
     })
     if (user) {
-
         const token = jwt.sign(
             {
                 name: user.name,
@@ -156,9 +155,9 @@ app.post('/api/login', async (req, res) => {
             'secret123'
         )
 
-        return res.json({ status: 'ok', user: true, usertoken: token })
+        res.json({ status: 'ok', user: true, usertoken: token })
     } else {
-        return res.json({ status: "error", user: false })
+        res.json({ status: "error", user: false })
     }
 })
 
@@ -187,8 +186,23 @@ app.patch('/api/update', async (req, res) => {
         const doc = await User.findOneAndUpdate(filter, update, {
             new: true
           });
+        const user = await User.findOne({
+            email: req.body.email,
+            password: req.body.password
+        })
+        if (user) {
+            const token = jwt.sign(
+                {
+                    name: user.name,
+                    email: req.body.email,
+                },
+                'secret123'
+            )
+            
+            res.status(200).json({ status: "ok", message: 'User updated successfully', token: token});
 
-        res.status(200).json({ message: 'User updated successfully' });
+        }
+          
     } catch (error) {
         console.error('Error updating user:', error);
         res.status(500).json({ error: 'Failed to update the user' });

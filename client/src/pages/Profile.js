@@ -41,6 +41,7 @@ export default function Profile() {
   
       const data = await response.json();
       console.log('User updated successfully:', data);
+      localStorage.setItem('user_data', data.token)
     } catch (error) {
       console.error('Error updating user:', error);
     }
