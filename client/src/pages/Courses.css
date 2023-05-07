@@ -1,0 +1,75 @@
+h1 {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.searchbar {
+    margin-top: 25px;
+}
+
+.tooltip {
+    width: 200px;
+    background: rgb(19, 16, 16);
+    border: 5px solid #000;
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.5s;
+    text-align: center;
+    font-size: 15px;
+}
+.tooltip:hover {
+    color: #fff;
+}
+
+.container-pair {
+    display: flex;
+}
+
+.search-pair {
+    margin: 5px 4px;
+    background: rgba(128, 128, 128, 0.241);
+    border-radius: 10px;
+    padding: 5px;
+    border: 3px solid rgba(0, 0, 0, 0.479);
+}
+
+#title {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.popup-content {
+  margin: auto;
+  background: rgb(255, 255, 255);
+  width: 50%;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 0.5s;
+  padding: 10px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  transition: 0.2s;
+}
+
+.popular-courses {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.pop-card {
+    background: rgb(182, 182, 182);
+    width: 30%;
+    margin: 0 15px;
+    padding-bottom: 10px;
+    border-radius:10px;
+    overflow: hidden;
+    border-color:  rgb(182, 182, 182);
+    text-align: center;
+}
+
+.pop-card:hover {
+
+}

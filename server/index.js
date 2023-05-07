@@ -12,9 +12,33 @@ const cohere = require('cohere-ai')
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect('mongodb+srv://kamiosu:jrX4woDP97bOe9IB@cluster0.qi6s5f2.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://kamiosu:jrX4woDP97bOe9IB@cluster0.qi6s5f2.mongodb.net/app-data?retryWrites=true&w=majority')
 
 cohere.init('e4xiDpVg2srQ8p24bSBvaQHB0eCd7Woyzz9L3SC9')
+
+app.post('/api/connect', async (req, res) => {
+    console.log(req.body)
+    const token = req.body.token;
+    try {
+        const decoded = jwt.verify(token, "secret123")
+        const email = decoded.email
+        const questions = await QuestionPair.find({email : email})
+        res.json({status:"ok", questions})
+    } catch (e) {
+        res.json({status:"error"})
+    }
+})
+
+app.post('/api/findcourse', async (req, res) => {
+    console.log(req.body)
+    try {
+        const questions = await QuestionPair.find({courseName: req.body.courseName})
+        res.json({status: "ok", questions})
+
+    } catch (e) {
+        res.json({status: "error", error: e})
+    }
+})
 
 app.post('/api/submit', async (req, res) => {
     console.log(req.body)
@@ -23,6 +47,7 @@ app.post('/api/submit', async (req, res) => {
         const decoded = jwt.verify(token, "secret123")
         const email = decoded.email
         const user = await User.findOne({email : email})
+        console.log("balls?")
         try {
             const questionpair = await QuestionPair.create({
                 question: req.body.question,
@@ -36,7 +61,7 @@ app.post('/api/submit', async (req, res) => {
         res.json({ status: 'ok'})
 
         } catch (e) {
-            res.json({ status: 'error' })
+            res.json({ status: 'error', error: e})
         }
 
     } catch (e) {

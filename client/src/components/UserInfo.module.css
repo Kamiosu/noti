@@ -1,0 +1,42 @@
+.userInfoCard {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  margin: 20px auto; 
+  transition: transform 0.3s ease-in-out;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer; 
+}
+
+.userInfoCard:hover {
+  transform: scale(1.05);
+}
+
+.userInfoCard h1 {
+  color: #fffcfd;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.userInfoCard p {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.userInfoCard button {
+  background-color: rgb(241, 173, 130);
+  border: none;
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.userInfoCard button:hover {
+  background-color: #40fc15;
+}

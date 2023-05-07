@@ -1,0 +1,51 @@
+.dropdown {
+    position: relative;
+    width: 200px;
+    margin: 0 auto; 
+  }
+  
+  .toggleButton {
+    background-color: #ffffff;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .toggleButton:hover {
+    background-color: #ffbdbd;
+  }
+  
+  .listContainer {
+    position: relative;
+    max-height: 200px; 
+    overflow-y: auto; 
+    transition: height 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+  }
+ 
+  
+  .listContainer button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px;
+    margin-top: 5px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    width: 100%;
+  }
+  
+  .listContainer button:hover {
+    background-color: #ea0e0e;
+  }
+  
+  .listContainer button.selected {
+    background-color: #80f366;
+  }
+  
