@@ -15,6 +15,16 @@ export default function NavBar() {
         window.location.href = '/Login'
     };
 
+
+    const handleSignOut = () => { 
+        localStorage.removeItem('user_data');
+        localStorage.removeItem('signedin', false);
+        window.location.href = '/Login';
+    }
+
+
+    var signedin = localStorage.getItem('signedin');
+
     return (
         <nav className="navbar h-30 bg-gradient-to-br from-yellow-400 to-blue-70">
             <div className="navbar__left">
@@ -22,9 +32,17 @@ export default function NavBar() {
                 <span className="navbar__app-name">Noti</span>
             </div>
             <div className="navbar__right">
+                    { signedin ? (
+
+                    <button className="navbar__sign-in" onClick={handleSignOut}>
+                        Sign Out
+                    </button>
+                    ) : (
                     <button className="navbar__sign-in" onClick={handleSignIn}>
                         Sign In
                     </button>
+
+                    )}
                 <div className="navbar__user-dropdown" onClick={handleDropdown}>
                     
                      <img src={profilepic}  alt="User Photo" className="navbar__user-photo" /> 
