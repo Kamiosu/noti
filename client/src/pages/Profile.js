@@ -92,7 +92,7 @@ export default function Profile() {
       localStorage.setItem('user_data', JSON.stringify(profileData));
       setProfileData(profileData)
       console.log('Profile data submitted:', profileData);
-      
+
       //before toggling edit more off update mongodb with new info
       updateUser();
 
