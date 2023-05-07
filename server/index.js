@@ -16,6 +16,34 @@ mongoose.connect('mongodb+srv://kamiosu:jrX4woDP97bOe9IB@cluster0.qi6s5f2.mongod
 
 cohere.init('e4xiDpVg2srQ8p24bSBvaQHB0eCd7Woyzz9L3SC9')
 
+app.post('/api/submit', async (req, res) => {
+    console.log(req.body)
+    const token = req.body.token
+    try {
+        const decoded = jwt.verify(token, "secret123")
+        const email = decoded.email
+        const user = await User.findOne({email : email})
+        try {
+            const questionpair = await QuestionPair.create({
+                question: req.body.question,
+                answer: req.body.answer,
+                user: user.name,
+                email: email,
+                notes: req.body.notes,
+                school: req.body.school,
+                courseName: req.body.courseNo
+            })
+        res.json({ status: 'ok'})
+
+        } catch (e) {
+            res.json({ status: 'error' })
+        }
+
+    } catch (e) {
+        res.json({status: 'error'})
+    }
+})
+
 app.post('/api/generatequestions', async (req, res) => {
     console.log(req.body)
     const token = req.body.token
@@ -41,15 +69,15 @@ app.post('/api/generatequestions', async (req, res) => {
             console.log(parts)
             
             try {
-                const questionpair = await QuestionPair.create({
-                    question: question,
-                    answer: answer,
-                    user: user.name,
-                    email: email,
-                    notes: req.body.notes,
-                    school: req.body.school,
-                    courseName: req.body.courseNo
-                })
+                // const questionpair = await QuestionPair.create({
+                //     question: question,
+                //     answer: answer,
+                //     user: user.name,
+                //     email: email,
+                //     notes: req.body.notes,
+                //     school: req.body.school,
+                //     courseName: req.body.courseNo
+                // })
             res.json({ status: 'ok', question: question, answer: answer})
     
             } catch (e) {
