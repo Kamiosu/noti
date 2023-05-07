@@ -1,5 +1,7 @@
-![Getting Started](applogo.png)
-<h1 align="center"><strong>Noti</strong></h1>
+<div align="center">
+<img src="applogo.png" width="25%">
+<h1> NOTI </h1>
+</div>
 
 ## Features
 
