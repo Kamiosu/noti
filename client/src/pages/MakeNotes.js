@@ -22,7 +22,7 @@ export default function MakeNotes() {
           notes,
           school,
           courseNo,
-          token: localStorage.getItem('token'),
+          token: localStorage.getItem('user_data'),
           question,
           answer
         })
@@ -43,11 +43,11 @@ export default function MakeNotes() {
                 notes,
                 school,
                 courseNo,
-                token: localStorage.getItem('token') 
+                token: localStorage.getItem('user_data') 
             })
         })
         const data = await response.json()
-        if (data.status=="ok") {
+        if (data.status==="ok") {
             setQuestion(data.question)
             setAnswer(data.answer)
         }
