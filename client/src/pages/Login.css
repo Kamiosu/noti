@@ -23,13 +23,15 @@ $gradient-radial: radial-gradient(#d6efffff, #5c80bcff, #fae063ff, #0f110cff, #0
     color: var(--night);
     position: relative;
     width: 30%;
-    outline: var(--naples-yellow) 10px solid;
+    border: var(--naples-yellow) 10px solid;
+    background: var(--glaucous);
+    border-radius: 15px;
     backdrop-filter: blur(5px);
-    /* box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    /* overflow: hidden; */
+    overflow: hidden; 
     transition: transform .5s ease, height .2s ease;
     margin: 35px auto;
     padding: 55px 0;
