@@ -29,6 +29,9 @@ export default function MakeNotes() {
       })
       const data = await response.json()
       console.log(data)
+      if (data.status=="error"){
+        alert("Please try again")
+      }
 
     }
 

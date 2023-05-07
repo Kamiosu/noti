@@ -23,13 +23,11 @@ function Login() {
     const data = await response.json();
 
     if (data.user) {
-      localStorage.setItem('user_data', data.user)
+      localStorage.setItem('user_data', data.usertoken)
       // const storedItems = { ...localStorage };
       // console.log(storedItems);
       localStorage.setItem('signedin', true)
-
-      alert('Login sucessful')
-      window.location.href = "/dashboard"
+      window.location.href = "/makenotes"
     } else {
       alert('Please check your username and password')
     }

@@ -78,41 +78,57 @@ app.post('/api/generatequestions', async (req, res) => {
         const user = await User.findOne({ email: email })
 
         try {
-            const response = await cohere.generate({
-                prompt: "Make me one question and answer of these notes, formatted Q and A, in two lines: " + req.body.notes,
-                model: "command-nightly",
-                max_tokens: 200,
-                temperature: .750
+            const response = await cohere.classify({
+                model: 'small', //which model
+                inputs: [req.body.notes],
+                examples: [{"text": "Karl Johnson died in 1989", "label": "benign"}, {"text": "Hitler was a dictator who hated jews", "label": "benign"}, {"text": "World War II lasted 6 years", "label": "benign"}, {"text": "There are four blood groups: A, B, AB, and O", "label": "benign"}, {"text": "Physics is the science of matter and its behavior", "label": "benign"}, {"text": "I will honestly kill you", "label": "toxic"}, {"text": "get rekt moron", "label": "toxic"}, {"text": "go to hell", "label": "toxic"}, {"text": "fagot", "label": "toxic"}, {"text": "you are hot trash", "label": "toxic"}]
             })
-            const len = JSON.stringify(response.body.generations[0].text).length
-            resString = JSON.stringify(response.body.generations[0].text).substring(3, len - 1)
-            console.log("RESPONSE: " + resString)
-            const parts = resString.split('\\n')
-            const question = parts[parts.length - 2]
-            const answer = parts[parts.length - 1]
-
-            console.log(parts)
-
-            try {
-                const questionpair = await QuestionPair.create({
-                    question: question,
-                    answer: answer,
-                    user: user.name,
-                    email: email,
-                    notes: req.body.notes,
-                    school: req.body.school,
-                    courseName: req.body.courseNo
-                })
-            res.json({ status: 'ok', question: question, answer: answer})
-    
-            } catch (e) {
-                res.json({ status: 'error' })
+            console.log("!!" + JSON.stringify(response.body.classifications[0].labels.toxic.confidence))
+            if (parseInt(JSON.stringify(response.body.classifications[0].labels.toxic.confidence)) > .95) {
+                res.json({status: "ok", classify: "toxic"})
+            } else {
+                try {
+                    const response = await cohere.generate({
+                        prompt: "Make me one question and answer of these notes, formatted Q and A, in two lines: " + req.body.notes,
+                        model: "command-nightly",
+                        max_tokens: 200,
+                        temperature: .750
+                    })
+                    const len = JSON.stringify(response.body.generations[0].text).length
+                    resString = JSON.stringify(response.body.generations[0].text).substring(3, len - 1)
+                    console.log("RESPONSE: " + resString)
+                    const parts = resString.split('\\n')
+                    const question = parts[parts.length - 2]
+                    const answer = parts[parts.length - 1]
+        
+                    console.log(parts)
+        
+                    try {
+                        const questionpair = await QuestionPair.create({
+                            question: question,
+                            answer: answer,
+                            user: user.name,
+                            email: email,
+                            notes: req.body.notes,
+                            school: req.body.school,
+                            courseName: req.body.courseNo
+                        })
+                    res.json({ status: 'ok', question: question, answer: answer, classify: "benign"})
+            
+                    } catch (e) {
+                        res.json({ status: 'error' })
+                    }
+        
+                } catch (e) {
+                    res.send({ status: "error" })
+        
+                } 
             }
-
         } catch (e) {
-            res.send({ status: "error" })
-
+            res.json({status: "error"})
         }
+
+        
 
     } catch (error) {
         console.log(error)
@@ -155,7 +171,7 @@ app.post('/api/login', async (req, res) => {
             'secret123'
         )
 
-        return res.json({ status: 'ok', user: true, user: token })
+        return res.json({ status: 'ok', user: true, usertoken: token })
     } else {
         return res.json({ status: "error", user: false })
     }

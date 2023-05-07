@@ -37,7 +37,7 @@ $gradient-radial: radial-gradient(#d6efffff, #5c80bcff, #fae063ff, #0f110cff, #0
     font-size: 50px;
     border-bottom: 10px solid var(--glaucous);
     border-radius: 10px;
-    text-shadow: 10px;
+    text-shadow: 0px 5px var(--glaucous);
     color: var(--naples-yellow)
 }
 
@@ -74,6 +74,7 @@ $gradient-radial: radial-gradient(#d6efffff, #5c80bcff, #fae063ff, #0f110cff, #0
     background: var(--naples-yellow);
     border-bottom: 2px solid var(--glaucous);
     border-radius: 10px;
+    padding-left: 5px;
     margin: 0 5% 20px 5%;
 }
 
@@ -98,5 +99,10 @@ $gradient-radial: radial-gradient(#d6efffff, #5c80bcff, #fae063ff, #0f110cff, #0
     align-items: center;
     text-align: center;
     margin: 0 10%;
-    
+}
+
+.generated-response h1 {
+    text-shadow: 0 2px var(--glaucous);
+    border-bottom: 2px solid var(--glaucous);
+    border-radius: 5px;
 }
