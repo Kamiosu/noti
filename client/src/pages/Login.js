@@ -2,13 +2,14 @@ import React from 'react'
 import { useState } from 'react'
 import "./Login.css";
 
+
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   
   async function loginUser(event) {
     event.preventDefault()
-    const response = await fetch('http://localhost:1337/api/login', {
+    const response = await fetch('http://localhost:1337/api/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -22,7 +23,10 @@ function Login() {
     const data = await response.json();
 
     if (data.user) {
-      localStorage.setItem('token', data.user)
+      localStorage.setItem('user_data', data.user)
+      // const storedItems = { ...localStorage };
+      // console.log(storedItems);
+
       alert('Login sucessful')
       window.location.href = "/dashboard"
     } else {

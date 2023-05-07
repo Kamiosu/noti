@@ -8,12 +8,12 @@ import NavBar from './components/NavBar';
 import Courses from './pages/Courses';
 import MakeNotes from './pages/MakeNotes'
 import Connect from './pages/Connect'
-import {useEffect} from 'react'
+
 
 export default function App(){
     
     return (
-        <div class="root">
+        <div >
             <NavBar> </NavBar>
             
             <Router>
