@@ -1,4 +1,4 @@
-![Getting Started](applogo.svg)
+![Getting Started](applogo.png)
 <h1 align="center"><strong>Noti</strong></h1>
 
 ## Features
