@@ -12,7 +12,7 @@ const cohere = require('cohere-ai')
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect('mongodb+srv://kamiosu:jrX4woDP97bOe9IB@cluster0.qi6s5f2.mongodb.net/app_infoapp-data?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://kamiosu:jrX4woDP97bOe9IB@cluster0.qi6s5f2.mongodb.net/app_info?retryWrites=true&w=majority')
 
 cohere.init('e4xiDpVg2srQ8p24bSBvaQHB0eCd7Woyzz9L3SC9')
 
