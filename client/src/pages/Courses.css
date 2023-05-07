@@ -1,6 +1,27 @@
+* {
+    /* CSS HEX */
+--columbia-blue: #d6efffff;
+--glaucous: #5c80bcff;
+--naples-yellow: #fae063ff;
+--night: #0f110cff;
+--persian-green: #049a8fff;
+
+/* SCSS Gradient */
+/* $gradient-top: linear-gradient(0deg, #d6efffff, #5c80bcff, #fae063ff, #0f110cff, #049a8fff);
+$gradient-right: linear-gradient(90deg, #d6efffff, #5c80bcff, #fae063ff, #0f110cff, #049a8fff);
+$gradient-bottom: linear-gradient(180deg, #d6efffff, #5c80bcff, #fae063ff, #0f110cff, #049a8fff);
+$gradient-left: linear-gradient(270deg, #d6efffff, #5c80bcff, #fae063ff, #0f110cff, #049a8fff);
+$gradient-top-right: linear-gradient(45deg, #d6efffff, #5c80bcff, #fae063ff, #0f110cff, #049a8fff);
+$gradient-bottom-right: linear-gradient(135deg, #d6efffff, #5c80bcff, #fae063ff, #0f110cff, #049a8fff);
+$gradient-top-left: linear-gradient(225deg, #d6efffff, #5c80bcff, #fae063ff, #0f110cff, #049a8fff);
+$gradient-bottom-left: linear-gradient(315deg, #d6efffff, #5c80bcff, #fae063ff, #0f110cff, #049a8fff);
+$gradient-radial: radial-gradient(#d6efffff, #5c80bcff, #fae063ff, #0f110cff, #049a8fff); */
+}
+
 h1 {
     font-weight: 600;
     font-size: 30px;
+    color: var(--naples-yellow);
 }
 
 .searchbar {
@@ -9,8 +30,8 @@ h1 {
 
 .tooltip {
     width: 200px;
-    background: rgb(19, 16, 16);
-    border: 5px solid #000;
+    background: var(--glaucous);
+    color: var(--glaucous);
     border-radius: 10px;
     padding: 5px;
     transition: 0.5s;
@@ -18,7 +39,7 @@ h1 {
     font-size: 15px;
 }
 .tooltip:hover {
-    color: #fff;
+    color: var(--naples-yellow);
 }
 
 .container-pair {
@@ -27,10 +48,11 @@ h1 {
 
 .search-pair {
     margin: 5px 4px;
-    background: rgba(128, 128, 128, 0.241);
+    background: var(--naples-yellow);
     border-radius: 10px;
     padding: 5px;
-    border: 3px solid rgba(0, 0, 0, 0.479);
+    border: 3px solid var(--glaucous);
+    color: var(--glaucous);
 }
 
 #title {
@@ -40,7 +62,7 @@ h1 {
 
 .popup-content {
   margin: auto;
-  background: rgb(255, 255, 255);
+  background-color: var(--naples-yellow);
   width: 50%;
   padding: 5px;
   border-radius: 10px;
@@ -60,7 +82,7 @@ h1 {
     justify-content: center;
 }
 .pop-card {
-    background: rgb(182, 182, 182);
+    background: var(--glaucous);
     width: 30%;
     margin: 0 15px;
     padding-bottom: 10px;
@@ -68,8 +90,10 @@ h1 {
     overflow: hidden;
     border-color:  rgb(182, 182, 182);
     text-align: center;
+    filter: drop-shadow(0 0 15px var(--night));
 }
 
-.pop-card:hover {
-
+.pop-card p {
+    font-size: 20px;
+    color: var(--naples-yellow)
 }

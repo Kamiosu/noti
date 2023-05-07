@@ -24,7 +24,6 @@ $gradient-bottom-left: linear-gradient(315deg, #d6efffff, #5c80bcff, #fae063ff, 
 $gradient-radial: radial-gradient(#d6efffff, #5c80bcff, #fae063ff, #0f110cff, #049a8fff); */
 }
 
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -74,22 +73,26 @@ $gradient-radial: radial-gradient(#d6efffff, #5c80bcff, #fae063ff, #0f110cff, #0
     top: 100%;
     right: 0;
     min-width: 160px;
-    background-color: #fff;
+    background-color: var(--naples-yellow);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 10px;
     display: none;
+    z-index: 99;
   }
   
   .navbar__dropdown-content a {
     display: block;
     padding: 5px 10px;
     text-decoration: none;
-    color: #333;
+    color: var(--glaucous);
     cursor: pointer;
+    border-radius: 5px;
   }
   
   .navbar__dropdown-content a:hover {
-    background-color: #f2f2f2;
+    background-color: var(--columbia-blue);
   }
   
   .navbar__user-dropdown:hover .navbar__dropdown-content {
@@ -98,9 +101,9 @@ $gradient-radial: radial-gradient(#d6efffff, #5c80bcff, #fae063ff, #0f110cff, #0
   
   .navbar__sign-in {
     padding: 8px 16px;
-    background-color: #12120900;
-    border: 2px #F0CF65 solid;
-    color: #000;
+    background-color: var(--naples-yellow);
+    border: 2px var(--glaucous) solid;
+    color: var(--glaucous);
     font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
@@ -109,6 +112,7 @@ $gradient-radial: radial-gradient(#d6efffff, #5c80bcff, #fae063ff, #0f110cff, #0
   }
   
   .navbar__sign-in:hover {
-    background-color: #F0CF65;
+    background-color: var(--glaucous);
+    color: var(--naples-yellow);
   }
   

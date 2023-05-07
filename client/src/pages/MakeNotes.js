@@ -58,7 +58,7 @@ export default function MakeNotes() {
     return (
       <div className="wrapper-1">
         <form className="form-box-1">
-          <h1>Make Notes in Questions</h1><br/>
+          <h1 id="form-title">Make Notes into <br/>Questions.</h1><br/>
           <h2>Input notes below to generate question</h2>
           <input
             value={notes}
