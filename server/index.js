@@ -12,7 +12,7 @@ const cohere = require('cohere-ai')
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect('mongodb+srv://kamiosu:jrX4woDP97bOe9IB@cluster0.qi6s5f2.mongodb.net/app-data?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://kamiosu:jrX4woDP97bOe9IB@cluster0.qi6s5f2.mongodb.net/app_infoapp-data?retryWrites=true&w=majority')
 
 cohere.init('e4xiDpVg2srQ8p24bSBvaQHB0eCd7Woyzz9L3SC9')
 
@@ -75,7 +75,7 @@ app.post('/api/generatequestions', async (req, res) => {
     try {
         const decoded = jwt.verify(token, "secret123")
         const email = decoded.email
-        const user = await User.findOne({email : email})
+        const user = await User.findOne({ email: email })
 
         try {
             const response = await cohere.generate({
@@ -85,42 +85,42 @@ app.post('/api/generatequestions', async (req, res) => {
                 temperature: .750
             })
             const len = JSON.stringify(response.body.generations[0].text).length
-            resString = JSON.stringify(response.body.generations[0].text).substring(3, len-1)
+            resString = JSON.stringify(response.body.generations[0].text).substring(3, len - 1)
             console.log("RESPONSE: " + resString)
             const parts = resString.split('\\n')
             const question = parts[parts.length - 2]
-            const answer = parts[parts.length - 1 ]
-        
+            const answer = parts[parts.length - 1]
+
             console.log(parts)
-            
+
             try {
-                // const questionpair = await QuestionPair.create({
-                //     question: question,
-                //     answer: answer,
-                //     user: user.name,
-                //     email: email,
-                //     notes: req.body.notes,
-                //     school: req.body.school,
-                //     courseName: req.body.courseNo
-                // })
+                const questionpair = await QuestionPair.create({
+                    question: question,
+                    answer: answer,
+                    user: user.name,
+                    email: email,
+                    notes: req.body.notes,
+                    school: req.body.school,
+                    courseName: req.body.courseNo
+                })
             res.json({ status: 'ok', question: question, answer: answer})
     
             } catch (e) {
                 res.json({ status: 'error' })
             }
-    
+
         } catch (e) {
             res.send({ status: "error" })
-    
+
         }
 
     } catch (error) {
         console.log(error)
-        res.json({status: 'error'})
+        res.json({ status: 'error' })
 
     }
 
-    
+
 
 })
 
@@ -160,6 +160,39 @@ app.post('/api/login', async (req, res) => {
         return res.json({ status: "error", user: false })
     }
 })
+
+app.post('/api/info', async (req, res) => {
+    const user = await User.findOne({
+        email: req.body.email,
+    })
+
+    if (user) {
+        return res.json({ status: 'ok', user: user })
+    } else {
+        return res.json({ status: "error", user: false })
+    }
+})
+
+// POST endpoint
+app.patch('/api/update', async (req, res) => {
+    try {
+        const email = req.body.email
+        const filter = { email: email };
+        const update = { 
+            name: req.body.name 
+            
+        };
+
+        const doc = await User.findOneAndUpdate(filter, update, {
+            new: true
+          });
+
+        res.status(200).json({ message: 'User updated successfully' });
+    } catch (error) {
+        console.error('Error updating user:', error);
+        res.status(500).json({ error: 'Failed to update the user' });
+    }
+});
 
 
 app.listen(1337, () => {

@@ -7,5 +7,5 @@ const User = new mongoose.Schema({
     social: { type: String},
 }, {collection: 'user-data'})
 
-const model = mongoose.model('UserData', User)
+const model = mongoose.model('UserData', User, 'users')
 module.exports = model

@@ -10,5 +10,5 @@ const QuestionPair = new mongoose.Schema({
     courseName: {type: String},
 }, {collection: 'question-data'})
 
-const model = mongoose.model('QuestionData', QuestionPair)
+const model = mongoose.model('QuestionData', QuestionPair, 'questions')
 module.exports = model
