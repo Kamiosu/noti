@@ -26,6 +26,7 @@ function Login() {
       localStorage.setItem('user_data', data.user)
       // const storedItems = { ...localStorage };
       // console.log(storedItems);
+      localStorage.setItem('signedin', true)
 
       alert('Login sucessful')
       window.location.href = "/dashboard"
