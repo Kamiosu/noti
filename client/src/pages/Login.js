@@ -27,7 +27,7 @@ function Login() {
       // const storedItems = { ...localStorage };
       // console.log(storedItems);
       localStorage.setItem('signedin', true)
-      window.location.href = "/makenotes"
+      window.location.href = "/Profile"
     } else {
       alert('Please check your username and password')
     }
