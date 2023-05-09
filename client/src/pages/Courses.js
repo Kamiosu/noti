@@ -11,7 +11,7 @@ export default function Courses() {
     const [cName, setCName] = useState('')
     async function findCourse(courseName) {
       setCName(courseName)
-      const response = await fetch('http://localhost:1337/api/findcourse', {
+      const response = await fetch('https://noti-19qz.onrender.com/api/findcourse', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ export default function Courses() {
                   return <div className="container-pair">
                     <div className="search-pair">
                       <li obj={object} key={i}>{object.question}</li>
-                      <li obj={object} key={i}>{object.answer}</li>
+                      <li id="hidden" obj={object} key={i}>{object.answer}</li>
                     </div>
                     <div className ="tooltip">
                       <p>Made by <em>{object.user}</em>,<br/>

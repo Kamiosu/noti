@@ -13,7 +13,7 @@ export default function MakeNotes() {
 
     async function submitToDatabase (event) {
       event.preventDefault()
-      const response = await fetch('http://localhost:1337/api/submit', {
+      const response = await fetch('https://noti-19qz.onrender.com/api/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ export default function MakeNotes() {
 
     async function convertNotes (event) {
         event.preventDefault()
-        const response = await fetch('http://localhost:1337/api/generatequestions', {
+        const response = await fetch('https://noti-19qz.onrender.com/api/generatequestions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

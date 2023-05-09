@@ -38,6 +38,7 @@ h1 {
     transition: 0.5s;
     text-align: center;
     font-size: 15px;
+    margin: 10px 0;
 }
 .tooltip:hover {
     color: var(--naples-yellow);
@@ -97,4 +98,18 @@ h1 {
 .pop-card p {
     font-size: 30px;
     color: var(--naples-yellow)
+}
+
+#hidden {
+    color: var(--naples-yellow);
+    border-top: 2px solid var(--persian-green);
+    border-bottom: 2px solid var(--persian-green);
+    height: 80%;
+    border-radius: 10px;
+    transition: 0.3s;
+    z-index: 22;
+}
+
+#hidden:hover {
+    color: var(--persian-green);
 }
