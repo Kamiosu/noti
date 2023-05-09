@@ -16,6 +16,10 @@ mongoose.connect('mongodb+srv://kamiosu:jrX4woDP97bOe9IB@cluster0.qi6s5f2.mongod
 
 cohere.init('e4xiDpVg2srQ8p24bSBvaQHB0eCd7Woyzz9L3SC9')
 
+app.get('/', function(req, res){
+    res.send("Hello from the root application URL");
+});
+
 app.post('/api/connect', async (req, res) => {
     console.log(req.body)
     const token = req.body.token;
@@ -196,7 +200,7 @@ app.patch('/api/update', async (req, res) => {
                     name: user.name,
                     email: req.body.email,
                 },
-                'secret123'
+                'secret124'
             )
             
             res.status(200).json({ status: "ok", message: 'User updated successfully', token: token});
